@@ -246,6 +246,10 @@ if __name__ == "__main__":
 
             # Saving mesh
             if args.save_mesh:
+                # pkl file 
+                with open(save_fn + '.pkl', 'wb') as f:
+                    pkl.dump(humans, f)
+
                 # npy file
                 l_mesh = [hum['v3d'].cpu().numpy() for hum in humans]
                 mesh_fn = save_fn+'.npy'
